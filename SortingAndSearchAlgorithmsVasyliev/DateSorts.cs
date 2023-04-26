@@ -180,7 +180,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         {
             if (l < r)
             {
-                DateTime pivot = list[r];
+                DateTime pivot = list[(l + r) / 2];
                 int i = l + 1;
                 for (int j = l + 1; j <= r; j++)
                 {

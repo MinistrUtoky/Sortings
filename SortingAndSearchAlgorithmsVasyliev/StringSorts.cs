@@ -176,7 +176,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         {
             if (l < r)
             {
-                string pivot = list[r];
+                string pivot = list[(l + r) / 2];
                 int i = l + 1;
                 for (int j = l + 1; j <= r; j++)
                 {

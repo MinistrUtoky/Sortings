@@ -1,5 +1,5 @@
 ﻿
-/* 2. Сравнить их между собой на различных входных данных:\\
+/* 
     3. Наглядно представить полученные результаты и сделать выводы 
     (соответствие теоретическим оценкам, в каких ситуациях какую сортировку использовать и т.д.).
 */
@@ -69,43 +69,66 @@ void StartPartiallyShuffledArraysSorting(int e)
     TestcaseStarters.StartDateSortingAlgorithmsComplexityTestcase(ListGenerators.PartiallyShuffledDatesList((int)Math.Pow(10, e)/2, e, (int)Math.Pow(5, e)/2),
                                                                     d + "/SortingsData/PartialShuffleSortingsData.csv");
 }
+void StartSortedArraysWithUnsortedTailSorting(int e)
+{
+    Console.WriteLine("2c) SORTING ARRAYS WITH UNSORTED TAIL:");
+    Console.WriteLine("SORTING UNSORTED TAIL ARRAYS OF DIGITS");
+    TestcaseStarters.StartDigitsSortingAlgorithmsComplexityTestcase(ListGenerators.UnsortedTailDigitsList((int)Math.Pow(10, e) / 2, false, (int)Math.Pow(8, e) / 2),
+                                                                    d + "/SortingsData/UnsortedTailSortingsData.csv");
+    Console.WriteLine("SORTING UNSORTED TAIL ARRAYS OF NUMBERS FROM -1000 TO 1000");
+    TestcaseStarters.StartSortingAlgorithmsComplexityTestcase(ListGenerators.UnsortedTailDoublesList((int)Math.Pow(10, e) / 2, -1000, 1000, false, (int)Math.Pow(8, e) / 2),
+                                                                    d + "/SortingsData/UnsortedTailSortingsData.csv");
+    Console.WriteLine("SORTING UNSORTED TAIL STRING ARRAYS BY THE LENGTH OF A RANGE [2, 100)");
+    TestcaseStarters.StartStringSortingAlgorithmsComplexityTestcase(ListGenerators.UnsortedTailStringsList((int)Math.Pow(10, e) / 2, 2, 100, false, (int)Math.Pow(8, e) / 2),
+                                                                    d + "/SortingsData/UnsortedTailSortingsData.csv");
+    Console.WriteLine("SORTING UNSORTED TAIL DATETIME STRUCT ARRAYS");
+    TestcaseStarters.StartDateSortingAlgorithmsComplexityTestcase(ListGenerators.UnsortedTailDatesList((int)Math.Pow(10, e) / 2, false, (int)Math.Pow(8, e) / 2),
+                                                                    d + "/SortingsData/UnsortedTailSortingsData.csv");
+}
+void StartThimbledArraysSorting(int e)
+{
+    Console.WriteLine("2d) THIMBLED ARRAYS SORTING:");
+    Console.WriteLine("SORTING THIMBLED ARRAYS OF DIGITS");
+    TestcaseStarters.StartDigitsSortingAlgorithmsComplexityTestcase(ListGenerators.ThimbledDigitsList((int)Math.Pow(10, e) / 2, e),
+                                                                d + "/SortingsData/ThimbleSortingsData.csv");
+    Console.WriteLine("SORTING THIMBLED ARRAYS OF NUMBERS FROM -1000 TO 1000");
+    TestcaseStarters.StartSortingAlgorithmsComplexityTestcase(ListGenerators.ThimbledDoublesList((int)Math.Pow(10, e) / 2, -1000, 1000, e),
+                                                                d + "/SortingsData/ThimbleSortingsData.csv");
+    Console.WriteLine("SORTING THIMBLED STRING ARRAYS BY THE LENGTH OF A RANGE [2, 100)");
+    TestcaseStarters.StartStringSortingAlgorithmsComplexityTestcase(ListGenerators.ThimbledStringsList((int)Math.Pow(10, e) / 2, 2, 100, e),
+                                                                d + "/SortingsData/ThimbleSortingsData.csv");
+    Console.WriteLine("SORTING THIMBLED DATETIME STRUCT ARRAYS");
+    TestcaseStarters.StartDateSortingAlgorithmsComplexityTestcase(ListGenerators.ThimbledDatesList((int)Math.Pow(10, e) / 2, e),
+                                                                d + "/SortingsData/ThimbleSortingsData.csv");
+}
+void StartCopyPasteArraysSorting(int e)
+{
+    Console.WriteLine("3) COPY PASTE ARRAYS SORTING:");
+    Console.WriteLine("SORTING COPY PASTE ARRAYS OF DIGITS");
+    TestcaseStarters.StartDigitsSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteDigitsList((int)Math.Pow(10, e) / 2, e),
+                                                                d + "/SortingsData/CloneArmySortingsData.csv");
+    Console.WriteLine("SORTING COPY PASTE ARRAYS OF NUMBERS FROM -1000 TO 1000");
+    TestcaseStarters.StartSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteDoublesList((int)Math.Pow(10, e) / 2, -1000, 1000, e),
+                                                                d + "/SortingsData/CloneArmySortingsData.csv");
+    Console.WriteLine("SORTING COPY PASTE STRING ARRAYS BY THE LENGTH OF A RANGE [2, 100)");
+    TestcaseStarters.StartStringSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteStringsList((int)Math.Pow(10, e) / 2, 2, 100, e),
+                                                                d + "/SortingsData/CloneArmySortingsData.csv");
+    Console.WriteLine("SORTING COPY PASTE DATETIME STRUCT ARRAYS");
+    TestcaseStarters.StartDateSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteDatesList((int)Math.Pow(10, e) / 2, e),
+                                                                d + "/SortingsData/CloneArmySortingsData.csv");
+}
 
 
 
-int e = 6, to = 7;
+int e = 2, to = 7;
 while (e < to) {
     Console.WriteLine("!!!TEST CASE NUMBER " + (e) + "!!!");
-    Thread newThread = new Thread(x => { StartRandomArraysSorting(e); StartInsertedArraysSorting(e); StartPartiallyShuffledArraysSorting(e); e++; }, 536870912);
+    Thread newThread = new Thread(x => { StartRandomArraysSorting(e); 
+                                            StartInsertedArraysSorting(e); 
+                                                StartPartiallyShuffledArraysSorting(e); 
+                                                    StartSortedArraysWithUnsortedTailSorting(e); 
+                                                        StartThimbledArraysSorting(e);
+                                                            StartCopyPasteArraysSorting(e); 
+                                                                e++; }, 536870912);
     newThread.Start(); newThread.Join();
-    /*
-
-    Console.WriteLine("2c)  :");
-    Console.WriteLine("SORTING PARTIALLY SORTED ARRAYS OF DIGITS");
-    TestcaseStarters.StartDigitsSortingAlgorithmsComplexityTestcase();
-    Console.WriteLine("SORTING PARTIALLY SORTED ARRAYS OF NUMBERS FROM -1000 TO 1000");
-    TestcaseStarters.StartSortingAlgorithmsComplexityTestcase();
-    Console.WriteLine("SORTING PARTIALLY SORTED STRING ARRAYS BY THE LENGTH OF A RANGE [2, 100)");
-    TestcaseStarters.StartStringSortingAlgorithmsComplexityTestcase();
-    Console.WriteLine("SORTING PARTIALLY SORTED DATETIME STRUCT ARRAYS");
-    TestcaseStarters.StartDateSortingAlgorithmsComplexityTestcase();
-
-    Console.WriteLine("2d)  :");
-    Console.WriteLine("SORTING PARTIALLY SORTED ARRAYS OF DIGITS");
-    TestcaseStarters.StartDigitsSortingAlgorithmsComplexityTestcase();
-    Console.WriteLine("SORTING PARTIALLY SORTED ARRAYS OF NUMBERS FROM -1000 TO 1000");
-    TestcaseStarters.StartSortingAlgorithmsComplexityTestcase();
-    Console.WriteLine("SORTING PARTIALLY SORTED STRING ARRAYS BY THE LENGTH OF A RANGE [2, 100)");
-    TestcaseStarters.StartStringSortingAlgorithmsComplexityTestcase();
-    Console.WriteLine("SORTING PARTIALLY SORTED DATETIME STRUCT ARRAYS");
-    TestcaseStarters.StartDateSortingAlgorithmsComplexityTestcase();
-
-    Console.WriteLine("3) MANY SAME ITEM ARRAYS SORTING:");
-    Console.WriteLine("SORTING MANY SAME ITEM ARRAYS OF DIGITS");
-    TestcaseStarters.StartDigitsSortingAlgorithmsComplexityTestcase();
-    Console.WriteLine("SORTING MANY SAME ITEM ARRAYS OF NUMBERS FROM -1000 TO 1000");
-    TestcaseStarters.StartSortingAlgorithmsComplexityTestcase();
-    Console.WriteLine("SORTING MANY SAME ITEM STRING ARRAYS BY THE LENGTH OF A RANGE [2, 100)");
-    TestcaseStarters.StartStringSortingAlgorithmsComplexityTestcase();
-    Console.WriteLine("SORTING MANY SAME ITEM DATETIME STRUCT ARRAYS");
-    TestcaseStarters.StartDateSortingAlgorithmsComplexityTestcase();*/
 }

@@ -126,7 +126,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         }
         public static List<double> SelectionSort(List<double> list, out long O)
         {
-            O = 0; int minI; double t;
+            O = 0; int minI; 
             for (int i = 0; i < list.Count - 1; i++)
             {
                 minI = i;
@@ -135,9 +135,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                     if (list[j] < list[minI]) minI = j;
                     O++;
                 }
-                t = list[minI];
-                list[minI] = list[i];
-                list[i] = t;
+                (list[minI], list[i]) = (list[i], list[minI]);
             }
             return list;
         }
@@ -180,7 +178,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         {
             if (l < r)
             {
-                double pivot = list[r];
+                double pivot = list[(l + r)/2];
                 int i = l + 1;
                 for (int j = l+1; j <= r; j++)
                 {

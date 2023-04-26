@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -161,10 +162,64 @@ namespace SortingAndSearchAlgorithmsVasyliev
         }
 
         //Sorted lists with unsorted tail
+        private static List<T> Entail<T>(List<T> listToEntail, List<T> tailList, bool isTailLeft, int tailLength)
+        {
+            if (isTailLeft) { tailList.AddRange(listToEntail); return tailList; }
+            listToEntail.AddRange(tailList);
+            return listToEntail;
+        }
+        public static List<double> UnsortedTailDigitsList(int size, bool isTailLeft, int tailLength)
+        {
+            long O;
+            return Entail(Sorts.IntroSort(RandomDigitsList(size - tailLength), out O), RandomDigitsList(tailLength), isTailLeft, tailLength);
+        }
+        public static List<double> UnsortedTailDoublesList(int size, double min, double max, bool isTailLeft, int tailLength)
+        {
+            long O;
+            return Entail(Sorts.IntroSort(RandomDoublesList(size - tailLength, min, max), out O), RandomDoublesList(tailLength, min, max), isTailLeft, tailLength);
+        }
+        public static List<string> UnsortedTailStringsList(int size, int minLength, int maxLength, bool isTailLeft, int tailLength)
+        {
+            long O;
+            return Entail(StringSorts.IntroSort(RandomStringsList(size - tailLength, minLength, maxLength), out O), RandomStringsList(tailLength, minLength, maxLength), isTailLeft, tailLength);
+        }
+        public static List<DateTime> UnsortedTailDatesList(int size, bool isTailLeft, int tailLength)
+        {
+            long O;
+            return Entail(DateSorts.IntroSort(RandomDatesList(size - tailLength), out O), RandomDatesList(tailLength), isTailLeft, tailLength);
+        }
 
         //Thimbled lists
+        private static List<T> Thimble<T>(List<T> listToThimble, int numberOfThimbles)
+        {
+            int partSize = listToThimble.Count() / numberOfThimbles;
+            List<List<T>> thimbleRig = new List<List<T>>();
+            for (int i = 0; i < numberOfThimbles - 1; i++) thimbleRig.Add(listToThimble.GetRange(i * partSize, partSize));
+            thimbleRig.Add(listToThimble.GetRange(numberOfThimbles * (partSize - 1), listToThimble.Count() - numberOfThimbles * (partSize - 1)));
+            thimbleRig = Shuffle(thimbleRig, 1, numberOfThimbles);
+            listToThimble.Clear();
+            thimbleRig.ForEach(t => listToThimble.AddRange(t));
+            return listToThimble;
+        }
+        public static List<double> ThimbledDigitsList(int size, int numberOfThimbles) => Thimble(RandomDigitsList(size), numberOfThimbles); 
+        public static List<double> ThimbledDoublesList(int size, double min, double max, int numberOfThimbles) => Thimble(RandomDoublesList(size, min, max), numberOfThimbles);
+        public static List<string> ThimbledStringsList(int size, int minLength, int maxLength, int numberOfThimbles) => Thimble(RandomStringsList(size, minLength, maxLength), numberOfThimbles);
+        public static List<DateTime> ThimbledDatesList(int size, int numberOfThimbles) => Thimble(RandomDatesList(size), numberOfThimbles);
+
 
         //Lists with many copies of a few elements
-
+        private static List<T> CopyPaste<T>(List<T> clusterBasis, int size)
+        {
+            List<T> randomDigitsList = new List<T>();
+            for (int i = 0; i < clusterBasis.Count() - 1; i++)
+                for (int j = 0; j < size / clusterBasis.Count(); j++)
+                    randomDigitsList.Add(clusterBasis[i]);
+            for (int i = size - size % clusterBasis.Count() - clusterBasis.Count(); i < size; i++) randomDigitsList.Add(clusterBasis[clusterBasis.Count() - 1]);
+            return randomDigitsList;
+        }
+        public static List<double> CopyPasteDigitsList(int size, int clustersNumber) => CopyPaste(RandomDigitsList(clustersNumber), size);
+        public static List<double> CopyPasteDoublesList(int size, double min, double max, int clustersNumber) => CopyPaste(RandomDoublesList(clustersNumber, min, max), size);
+        public static List<string> CopyPasteStringsList(int size, int minLength, int maxLength, int clustersNumber) => CopyPaste(RandomStringsList(clustersNumber, minLength, maxLength), size);
+        public static List<DateTime> CopyPasteDatesList(int size, int clustersNumber) => CopyPaste(RandomDatesList(clustersNumber), size);
     }
 }
