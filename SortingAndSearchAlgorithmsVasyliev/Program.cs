@@ -105,30 +105,30 @@ void StartCopyPasteArraysSorting(int e)
 {
     Console.WriteLine("3) COPY PASTE ARRAYS SORTING:");
     Console.WriteLine("SORTING COPY PASTE ARRAYS OF DIGITS");
-    TestcaseStarters.StartDigitsSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteDigitsList((int)Math.Pow(10, e) / 2, e),
+    TestcaseStarters.StartDigitsSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteDigitsList((int)Math.Pow(10, e) / 2, e+1),
                                                                 d + "/SortingsData/CloneArmySortingsData.csv");
     Console.WriteLine("SORTING COPY PASTE ARRAYS OF NUMBERS FROM -1000 TO 1000");
-    TestcaseStarters.StartSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteDoublesList((int)Math.Pow(10, e) / 2, -1000, 1000, e),
+    TestcaseStarters.StartSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteDoublesList((int)Math.Pow(10, e) / 2, -1000, 1000, e+1),
                                                                 d + "/SortingsData/CloneArmySortingsData.csv");
     Console.WriteLine("SORTING COPY PASTE STRING ARRAYS BY THE LENGTH OF A RANGE [2, 100)");
-    TestcaseStarters.StartStringSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteStringsList((int)Math.Pow(10, e) / 2, 2, 100, e),
+    TestcaseStarters.StartStringSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteStringsList((int)Math.Pow(10, e) / 2, 2, 100, e+1),
                                                                 d + "/SortingsData/CloneArmySortingsData.csv");
     Console.WriteLine("SORTING COPY PASTE DATETIME STRUCT ARRAYS");
-    TestcaseStarters.StartDateSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteDatesList((int)Math.Pow(10, e) / 2, e),
+    TestcaseStarters.StartDateSortingAlgorithmsComplexityTestcase(ListGenerators.CopyPasteDatesList((int)Math.Pow(10, e) / 2, e+1),
                                                                 d + "/SortingsData/CloneArmySortingsData.csv");
 }
 
 
 
-int e = 2, to = 7;
+int e = 6, to = 7;
 while (e < to) {
-    Console.WriteLine("!!!TEST CASE NUMBER " + (e) + "!!!");
-    Thread newThread = new Thread(x => { StartRandomArraysSorting(e); 
-                                            StartInsertedArraysSorting(e); 
-                                                StartPartiallyShuffledArraysSorting(e); 
-                                                    StartSortedArraysWithUnsortedTailSorting(e); 
+    Console.WriteLine("!!!TEST CASE NUMBER " + e + "!!!");
+    Thread newThread = new Thread(x => { //StartRandomArraysSorting(e); 
+                                            //StartInsertedArraysSorting(e); 
+                                                //StartPartiallyShuffledArraysSorting(e); 
+                                                    //StartSortedArraysWithUnsortedTailSorting(e); 
                                                         StartThimbledArraysSorting(e);
-                                                            StartCopyPasteArraysSorting(e); 
+                                                           StartCopyPasteArraysSorting(e); 
                                                                 e++; }, 536870912);
     newThread.Start(); newThread.Join();
 }

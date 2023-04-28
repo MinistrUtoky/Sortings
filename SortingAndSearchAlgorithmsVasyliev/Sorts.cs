@@ -141,6 +141,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         }
         public static List<double> CountSort(List<double> list, out long O)
         {
+            list.ForEach(x => x *= (Math.Pow(10, 7)));
             O = 0;
             double max = list.Max();
             double[] output = new double[(int)max + 2];
@@ -154,6 +155,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 {
                     list[b++] = i; O++;
                 }
+            list.ForEach(x => x /= (Math.Pow(10, 7)));
             return list;
         }
         public static List<double> ShellSort(List<double> list, out long O)
@@ -268,6 +270,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         }
         public static List<double> BucketSort(List<double> list, out long O)
         {
+            list.ForEach(x => x *= (Math.Pow(10, 7)));
             O = 0; int numOfBuckets = 48;long On;
             List<double> sortedArray = new List<double>();
             List<double>[] buckets = new List<double>[numOfBuckets];
@@ -283,10 +286,12 @@ namespace SortingAndSearchAlgorithmsVasyliev
             {
                 sortedArray.AddRange(InsertionSort(buckets[i], out On)); O += On;
             }
+            list.ForEach(x => x /= (Math.Pow(10, 7)));
             return sortedArray;
         }
         public static List<double> RadixSort(List<double> list, out long O)
         {
+            list.ForEach(x => x *= (Math.Pow(10, 7)));
             O = 0;
             int n = list.Count; double max = list.Max();
             for (int e = 1; max / e >= 1; e *= 10)
@@ -311,6 +316,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 }
                 list = output;
             }
+            list.ForEach(x => x /= (Math.Pow(10, 7)));
             return list;
         }
         private static int Partition(List<double> list, int l, int r, out long O)
@@ -345,6 +351,25 @@ namespace SortingAndSearchAlgorithmsVasyliev
             else
             {
                 list = QuickSort(list, out O);
+            }
+            return list;
+        }
+        public static List<double> TimSortInsertion(List<double> list, int left, int right, out long O)
+        {
+            O = 0; double temp; int j;
+            for (int i = left + 1; i <= right; i++)
+            {
+                temp = list[i];
+                j = i - 1;
+                if (j >= left && list[j] > temp)
+                    while (j >= left && list[j] > temp)
+                    {
+                        list[j + 1] = list[j];
+                        j--;
+                        O++;
+                    }
+                else O++;
+                list[j + 1] = temp;
             }
             return list;
         }

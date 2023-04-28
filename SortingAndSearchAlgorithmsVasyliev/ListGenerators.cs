@@ -195,7 +195,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
             int partSize = listToThimble.Count() / numberOfThimbles;
             List<List<T>> thimbleRig = new List<List<T>>();
             for (int i = 0; i < numberOfThimbles - 1; i++) thimbleRig.Add(listToThimble.GetRange(i * partSize, partSize));
-            thimbleRig.Add(listToThimble.GetRange(numberOfThimbles * (partSize - 1), listToThimble.Count() - numberOfThimbles * (partSize - 1)));
+            thimbleRig.Add(listToThimble.GetRange((numberOfThimbles - 1) * partSize, listToThimble.Count() - (numberOfThimbles - 1) * partSize));
             thimbleRig = Shuffle(thimbleRig, 1, numberOfThimbles);
             listToThimble.Clear();
             thimbleRig.ForEach(t => listToThimble.AddRange(t));
@@ -211,10 +211,11 @@ namespace SortingAndSearchAlgorithmsVasyliev
         private static List<T> CopyPaste<T>(List<T> clusterBasis, int size)
         {
             List<T> randomDigitsList = new List<T>();
+            int clusterSize = size / clusterBasis.Count();
             for (int i = 0; i < clusterBasis.Count() - 1; i++)
                 for (int j = 0; j < size / clusterBasis.Count(); j++)
                     randomDigitsList.Add(clusterBasis[i]);
-            for (int i = size - size % clusterBasis.Count() - clusterBasis.Count(); i < size; i++) randomDigitsList.Add(clusterBasis[clusterBasis.Count() - 1]);
+            for (int i = (clusterBasis.Count() - 1)*clusterSize; i < size; i++) randomDigitsList.Add(clusterBasis[clusterBasis.Count() - 1]);
             return randomDigitsList;
         }
         public static List<double> CopyPasteDigitsList(int size, int clustersNumber) => CopyPaste(RandomDigitsList(clustersNumber), size);
