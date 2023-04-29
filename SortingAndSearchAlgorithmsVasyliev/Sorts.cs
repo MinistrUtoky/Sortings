@@ -416,7 +416,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
             int minRun = 32, n = list.Count, mid, right; long On;
             for (int i = 0; i < n; i += minRun)
             {
-                list = InsertionSort(list, out On); O += On; 
+                list = TimSortInsertion(list, i, Math.Min(i + minRun - 1, n - 1), out On); O += On;
             }
             for (int size = minRun; size < n;  size = 2 * size)
             {

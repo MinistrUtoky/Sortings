@@ -365,6 +365,25 @@ namespace SortingAndSearchAlgorithmsVasyliev
             }
             return list;
         }
+        public static List<DateTime> TimSortInsertion(List<DateTime> list, int left, int right, out long O)
+        {
+            O = 0; DateTime temp; int j;
+            for (int i = left + 1; i <= right; i++)
+            {
+                temp = list[i];
+                j = i - 1;
+                if (j >= left && list[j] > temp)
+                    while (j >= left && list[j] > temp)
+                    {
+                        list[j + 1] = list[j];
+                        j--;
+                        O++;
+                    }
+                else O++;
+                list[j + 1] = temp;
+            }
+            return list;
+        }
         public static List<DateTime> TimSortMerge(List<DateTime> list, int l, int m, int r, out long O)
         {
             O = 0;
@@ -408,7 +427,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
             int minRun = 32, n = list.Count, mid, right; long On;
             for (int i = 0; i < n; i += minRun)
             {
-                list = InsertionSort(list, out On); O += On;
+                TimSortInsertion(list, i, Math.Min(i + minRun - 1, n - 1), out On); O += On;
             }
             for (int size = minRun; size < n; size = 2 * size)
             {

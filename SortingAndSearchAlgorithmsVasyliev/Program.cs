@@ -120,13 +120,13 @@ void StartCopyPasteArraysSorting(int e)
 
 
 
-int e = 6, to = 7;
+int e = 2, to = 6;
 while (e < to) {
     Console.WriteLine("!!!TEST CASE NUMBER " + e + "!!!");
-    Thread newThread = new Thread(x => { //StartRandomArraysSorting(e); 
-                                            //StartInsertedArraysSorting(e); 
-                                                //StartPartiallyShuffledArraysSorting(e); 
-                                                    //StartSortedArraysWithUnsortedTailSorting(e); 
+    Thread newThread = new Thread(x => { StartRandomArraysSorting(e); 
+                                            StartInsertedArraysSorting(e); 
+                                                StartPartiallyShuffledArraysSorting(e); 
+                                                    StartSortedArraysWithUnsortedTailSorting(e); 
                                                         StartThimbledArraysSorting(e);
                                                            StartCopyPasteArraysSorting(e); 
                                                                 e++; }, 536870912);

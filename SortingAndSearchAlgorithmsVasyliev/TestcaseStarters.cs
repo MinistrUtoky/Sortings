@@ -10,6 +10,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
     {
         public static void StartDigitsSortingAlgorithmsTestcase(List<double> sortableList)
         {
+            
             double min = 0;
             if (sortableList.Any(x => x < 0))
             {
@@ -208,7 +209,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 Console.WriteLine(ex.ToString());
             }
             newData.Close();
-        }
+            }
 
         public static void StartSortingAlgorithmsTestcase(List<double> sortableList)
         {
@@ -359,7 +360,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 Console.WriteLine("SelectionSort:");
                 List<double> selected = Sorts.SelectionSort(listToSort, out O);
                 Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
-
+            
                 listToSort = new List<double>(sortableList);
                 Console.WriteLine("CountSort:");
                 List<double> counted = Sorts.CountSort(listToSort, out O);
@@ -399,7 +400,8 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 Console.WriteLine("IntroSort:");
                 List<double> introed = Sorts.IntroSort(listToSort, out O);
                 Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
-
+                
+            
                 listToSort = new List<double>(sortableList);
                 Console.WriteLine("TimSort:");
                 List<double> timmed = Sorts.TimSort(listToSort, out O);
@@ -507,80 +509,80 @@ namespace SortingAndSearchAlgorithmsVasyliev
             {
                 long O; int j = 2;
                 List<string> listToSort = new List<string>(sortableList);
-                Console.WriteLine("InsertionSort:");
-                List<string> inserted = StringSorts.InsertionSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                
+                    Console.WriteLine("InsertionSort:");
+                    List<string> inserted = StringSorts.InsertionSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("BubbleSort:");
-                List<string> bubbled = StringSorts.BubbleSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    listToSort = new List<string>(sortableList);
+                    Console.WriteLine("BubbleSort:");
+                    List<string> bubbled = StringSorts.BubbleSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("ShakerSort:");
-                List<string> shaken = StringSorts.ShakerSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    listToSort = new List<string>(sortableList);
+                    Console.WriteLine("ShakerSort:");
+                    List<string> shaken = StringSorts.ShakerSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("OddEvenSort:");
-                List<string> evened = StringSorts.OddEvenSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    listToSort = new List<string>(sortableList);
+                    Console.WriteLine("OddEvenSort:");
+                    List<string> evened = StringSorts.OddEvenSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("CombSort:");
-                List<string> combed = StringSorts.CombSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    listToSort = new List<string>(sortableList);
+                    Console.WriteLine("CombSort:");
+                    List<string> combed = StringSorts.CombSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("SelectionSort:");
-                List<string> selected = StringSorts.SelectionSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    listToSort = new List<string>(sortableList);
+                    Console.WriteLine("SelectionSort:");
+                    List<string> selected = StringSorts.SelectionSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
 
-                //listToSort = new List<string>(sortableList);
-                //Console.WriteLine("CountSort:");
-                //List<string> counted = StringSorts.CountSort(listToSort, out O);
-                //Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
-                newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + "-;"); 
+                    //listToSort = new List<string>(sortableList);
+                    //Console.WriteLine("CountSort:");
+                    //List<string> counted = StringSorts.CountSort(listToSort, out O);
+                    //Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + "-;"); 
 
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("ShellSort:");
-                List<string> shelled = StringSorts.ShellSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    listToSort = new List<string>(sortableList);
+                    Console.WriteLine("ShellSort:");
+                    List<string> shelled = StringSorts.ShellSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("QuickSort:");
-                List<string> quickQuack = StringSorts.QuickSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    listToSort = new List<string>(sortableList);
+                    Console.WriteLine("QuickSort:");
+                    List<string> quickQuack = StringSorts.QuickSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("MergeSort:");
-                List<string> merged = StringSorts.MergeSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    listToSort = new List<string>(sortableList);
+                    Console.WriteLine("MergeSort:");
+                    List<string> merged = StringSorts.MergeSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("HeapSort:");
-                List<string> heaped = StringSorts.HeapSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    listToSort = new List<string>(sortableList);
+                    Console.WriteLine("HeapSort:");
+                    List<string> heaped = StringSorts.HeapSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
-                /*
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("RadixSort:");
-                List<string> radixed = StringSorts.RadixSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");*/
-                newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + "-;");
+                    //listToSort = new List<string>(sortableList);
+                    //Console.WriteLine("RadixSort:");
+                    //List<string> radixed = StringSorts.RadixSort(listToSort, out O);
+                    //Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + "-;");
 
-                /*
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("BucketSort:");
-                List<string> bucketed = StringSorts.BucketSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");*/
-                newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + "-;"); 
 
-                listToSort = new List<string>(sortableList);
-                Console.WriteLine("IntroSort:");
-                List<string> introed = StringSorts.IntroSort(listToSort, out O);
-                Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    //listToSort = new List<string>(sortableList);
+                    //Console.WriteLine("BucketSort:");
+                    //List<string> bucketed = StringSorts.BucketSort(listToSort, out O);
+                    //Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
+                    newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + "-;");
+
+                    listToSort = new List<string>(sortableList);
+                    Console.WriteLine("IntroSort:");
+                    List<string> introed = StringSorts.IntroSort(listToSort, out O);
+                    Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
 
                 listToSort = new List<string>(sortableList);
                 Console.WriteLine("TimSort:");
@@ -591,7 +593,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
             {
                 Console.WriteLine(ex.ToString());
             }
-            newData.Close();
+            newData.Close(); 
         }
 
         public static void StartDateSortingAlgorithmsTestcase(List<DateTime> sortableList)
@@ -757,7 +759,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 Console.WriteLine("SelectionSort:");
                 List<DateTime> selected = DateSorts.SelectionSort(listToSort, out O);
                 Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
-
+                
                 if (!sortableList.Any(t =>
                             (t.ToUniversalTime() - new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds > Int32.MaxValue))
                 {
@@ -838,8 +840,8 @@ namespace SortingAndSearchAlgorithmsVasyliev
             {
                 Console.WriteLine(ex.ToString());
             }
-            newData.Close();
-           
-        }
+            newData.Close(); 
+
+            }
     }
 }
