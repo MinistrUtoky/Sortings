@@ -158,12 +158,12 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 Console.WriteLine("SelectionSort:");
                 List<double> selected = Sorts.SelectionSort(listToSort, out O);
                 Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count()? prevDataList[j++]: "") + O + ";");
-
+                
                 listToSort = new List<double>(sortableList);
                 Console.WriteLine("CountSort:");
                 List<double> counted = Sorts.CountSort(listToSort, out O);
                 Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count()? prevDataList[j++]: "") + O + ";");
-
+                
                 listToSort = new List<double>(sortableList);
                 Console.WriteLine("ShellSort:");
                 List<double> shelled = Sorts.ShellSort(listToSort, out O);
@@ -193,7 +193,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 Console.WriteLine("BucketSort:");
                 List<double> bucketed = Sorts.BucketSort(listToSort, out O);
                 Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count()? prevDataList[j++]: "") + O + ";");
-
+                
                 listToSort = new List<double>(sortableList);
                 Console.WriteLine("IntroSort:");
                 List<double> introed = Sorts.IntroSort(listToSort, out O);
@@ -365,7 +365,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 Console.WriteLine("CountSort:");
                 List<double> counted = Sorts.CountSort(listToSort, out O);
                 Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
-
+                
                 listToSort = new List<double>(sortableList);
                 Console.WriteLine("ShellSort:");
                 List<double> shelled = Sorts.ShellSort(listToSort, out O);
@@ -385,17 +385,17 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 Console.WriteLine("HeapSort:");
                 List<double> heaped = Sorts.HeapSort(listToSort, out O);
                 Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
-
+                
                 listToSort = new List<double>(sortableList);
                 Console.WriteLine("RadixSort:");
                 List<double> radixed = Sorts.RadixSort(listToSort, out O);
                 Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
-
+                
                 listToSort = new List<double>(sortableList);
                 Console.WriteLine("BucketSort:");
                 List<double> bucketed = Sorts.BucketSort(listToSort, out O);
                 Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
-
+                
                 listToSort = new List<double>(sortableList);
                 Console.WriteLine("IntroSort:");
                 List<double> introed = Sorts.IntroSort(listToSort, out O);
@@ -565,7 +565,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                     Console.WriteLine("HeapSort:");
                     List<string> heaped = StringSorts.HeapSort(listToSort, out O);
                     Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
-
+                       
                     //listToSort = new List<string>(sortableList);
                     //Console.WriteLine("RadixSort:");
                     //List<string> radixed = StringSorts.RadixSort(listToSort, out O);
@@ -578,7 +578,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                     //List<string> bucketed = StringSorts.BucketSort(listToSort, out O);
                     //Console.WriteLine(O + "!"); newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + O + ";");
                     newData.WriteLine((j < prevDataList.Count() ? prevDataList[j++] : "") + "-;");
-
+                
                     listToSort = new List<string>(sortableList);
                     Console.WriteLine("IntroSort:");
                     List<string> introed = StringSorts.IntroSort(listToSort, out O);

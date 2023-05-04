@@ -201,10 +201,21 @@ namespace SortingAndSearchAlgorithmsVasyliev
             thimbleRig.ForEach(t => listToThimble.AddRange(t));
             return listToThimble;
         }
-        public static List<double> ThimbledDigitsList(int size, int numberOfThimbles) => Thimble(RandomDigitsList(size), numberOfThimbles); 
-        public static List<double> ThimbledDoublesList(int size, double min, double max, int numberOfThimbles) => Thimble(RandomDoublesList(size, min, max), numberOfThimbles);
-        public static List<string> ThimbledStringsList(int size, int minLength, int maxLength, int numberOfThimbles) => Thimble(RandomStringsList(size, minLength, maxLength), numberOfThimbles);
-        public static List<DateTime> ThimbledDatesList(int size, int numberOfThimbles) => Thimble(RandomDatesList(size), numberOfThimbles);
+        public static List<double> ThimbledDigitsList(int size, int numberOfThimbles) {
+            long O; return Thimble(Sorts.IntroSort(RandomDigitsList(size), out O), numberOfThimbles);
+        }
+        public static List<double> ThimbledDoublesList(int size, double min, double max, int numberOfThimbles)
+        {
+            long O; return Thimble(Sorts.IntroSort(RandomDoublesList(size, min, max), out O), numberOfThimbles);
+        }
+        public static List<string> ThimbledStringsList(int size, int minLength, int maxLength, int numberOfThimbles)
+        {
+            long O; return Thimble(StringSorts.IntroSort(RandomStringsList(size, minLength, maxLength), out O), numberOfThimbles);
+        }
+        public static List<DateTime> ThimbledDatesList(int size, int numberOfThimbles)
+        {
+            long O; return Thimble(DateSorts.IntroSort(RandomDatesList(size), out O), numberOfThimbles);
+        }
 
 
         //Lists with many copies of a few elements

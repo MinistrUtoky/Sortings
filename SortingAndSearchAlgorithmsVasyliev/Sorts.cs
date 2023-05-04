@@ -141,7 +141,6 @@ namespace SortingAndSearchAlgorithmsVasyliev
         }
         public static List<double> CountSort(List<double> list, out long O)
         {
-            list.ForEach(x => x *= (Math.Pow(10, 7)));
             O = 0;
             double max = list.Max();
             double[] output = new double[(int)max + 2];
@@ -151,11 +150,12 @@ namespace SortingAndSearchAlgorithmsVasyliev
             }
             int b = 0;
             for (int i = 0; i < max + 1; ++i)
-                for (int j = 0; j < output[i]; ++j)
-                {
-                    list[b++] = i; O++;
-                }
-            list.ForEach(x => x /= (Math.Pow(10, 7)));
+                if (output[i] == 0) O++;
+                else
+                    for (int j = 0; j < output[i]; ++j)
+                    {
+                        list[b++] = i; O++;
+                    }
             return list;
         }
         public static List<double> ShellSort(List<double> list, out long O)
@@ -270,8 +270,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         }
         public static List<double> BucketSort(List<double> list, out long O)
         {
-            list.ForEach(x => x *= (Math.Pow(10, 7)));
-            O = 0; int numOfBuckets = 48;long On;
+            O = 0; int numOfBuckets = (int)Math.Sqrt(list.Max()) + 1;long On;
             List<double> sortedArray = new List<double>();
             List<double>[] buckets = new List<double>[numOfBuckets];
             for (int i = 0; i < numOfBuckets; i++)
@@ -286,18 +285,16 @@ namespace SortingAndSearchAlgorithmsVasyliev
             {
                 sortedArray.AddRange(InsertionSort(buckets[i], out On)); O += On;
             }
-            list.ForEach(x => x /= (Math.Pow(10, 7)));
             return sortedArray;
         }
         public static List<double> RadixSort(List<double> list, out long O)
         {
-            list.ForEach(x => x *= (Math.Pow(10, 7)));
             O = 0;
+            List<double> output;
             int n = list.Count; double max = list.Max();
             for (int e = 1; max / e >= 1; e *= 10)
             {
-                n = list.Count;
-                List<double> output = new List<double>(new double[n]);
+                output = new List<double>(new double[n]);
                 int[] frequency = new int[10];
                 for (int i = 0; i < n; i++)
                 {
@@ -316,7 +313,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
                 }
                 list = output;
             }
-            list.ForEach(x => x /= (Math.Pow(10, 7)));
+
             return list;
         }
         private static int Partition(List<double> list, int l, int r, out long O)

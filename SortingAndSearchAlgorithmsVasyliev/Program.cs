@@ -120,7 +120,7 @@ void StartCopyPasteArraysSorting(int e)
 
 
 
-int e = 2, to = 6;
+int e = 2, to = 7;
 while (e < to) {
     Console.WriteLine("!!!TEST CASE NUMBER " + e + "!!!");
     Thread newThread = new Thread(x => { StartRandomArraysSorting(e); 
