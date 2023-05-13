@@ -51,7 +51,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         //Sorted lists with random insertions
         public static List<double> InsertedDigitsSortedList(int size, int insertedItemsNumber)
         {
-            if (insertedItemsNumber > size) throw new Exception("Don't chew on what you cannot swallow");
+            if (insertedItemsNumber > size) throw new Exception("Don't chew on what you cannot swall");
             long O = 0; int pos;
             List<double> sortedList = Sorts.IntroSort(RandomDigitsList(size), out O);
             List<int> insertedPositions = new List<int>(); Random r = new Random();
@@ -67,7 +67,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         }
         public static List<double> InsertedNumbersSortedList(int size, int insertedItemsNumber, double min, double max)
         {
-            if (insertedItemsNumber > size) throw new Exception("Don't chew on what you cannot swallow");
+            if (insertedItemsNumber > size) throw new Exception("Don't chew on what you cannot swall");
             long O = 0; int pos;
             List<double> sortedList = Sorts.IntroSort(RandomDoublesList(size, min, max), out O);
             List<int> insertedPositions = new List<int>(); Random r = new Random();
@@ -83,7 +83,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         }
         public static List<string> InsertedStringsSortedList(int size, int insertedItemsNumber, int minLength, int maxLength)
         {
-            if (insertedItemsNumber > size) throw new Exception("Don't chew on what you cannot swallow");
+            if (insertedItemsNumber > size) throw new Exception("Don't chew on what you cannot swall");
             long O = 0; int pos;
             List<string> sortedList = StringSorts.IntroSort(RandomStringsList(size, minLength, maxLength), out O);
             List<int> insertedPositions = new List<int>(); Random r = new Random();
@@ -101,7 +101,7 @@ namespace SortingAndSearchAlgorithmsVasyliev
         }
         public static List<DateTime> InsertedDatesSortedList(int size, int insertedItemsNumber)
         {
-            if (insertedItemsNumber > size) throw new Exception("Don't chew on what you cannot swallow");
+            if (insertedItemsNumber > size) throw new Exception("Don't chew on what you cannot swall");
             long O = 0; int pos;
             List<DateTime> sortedList = DateSorts.IntroSort(RandomDatesList(size), out O);
             List<int> insertedPositions = new List<int>(); Random r = new Random(); TimeSpan ts;

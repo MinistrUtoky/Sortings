@@ -319,7 +319,6 @@ namespace SortingAndSearchAlgorithmsVasyliev
         private static int Partition(List<double> list, int l, int r, out long O)
         {
             O = 0;
-            double pivot = list[r];
             int i = l;
             for (int j = l; j < r; ++j)
             {
@@ -331,7 +330,6 @@ namespace SortingAndSearchAlgorithmsVasyliev
             }
             (list[i], list[r]) = (list[r], list[i]);
             return i;
-
         }
         public static List<double> IntroSort(List<double> list, out long O)
         {

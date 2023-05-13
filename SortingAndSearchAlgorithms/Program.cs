@@ -1,15 +1,4 @@
-﻿/*
- Дополнительные (необязательные) задания:\\
-            4*. Построить нерекурсивные реализации рекурсивных методов сортировки и сравнить с исходными
-            (проверить, работает ли рекурсия медленнее). Как быть с переполнением стека? Как выполнять сортировку больших массивов?\\
-            5*. На основе полученных результатов сформулировать и реализовать собственную гибридную сортировку, 
-                использующую преимущества разных методов в зависимости от входных данных.\\
-            * В каких случаях оправданно использование поразрядной сортировки?\\
-            ** В каких случаях можно обогнать встроенную в язык сортировку?\\
-            *** В каких случаях имеет смысл использовать простые методы сортировки?\\
-            **** Какая сортировка лучше, если не знаем ничего про входные данные?\\
- */
-
+﻿using RecursionSortsWithoutRecursionAndMyHybridSort;
 using SortingAndSearchAlgorithmsVasyliev;
 string d = Directory.GetParent(
               Directory.GetParent(
@@ -115,7 +104,7 @@ void StartCopyPasteArraysSorting(int e)
 
 
 
-int e = 2, to = 7;
+int e = 2, to = 5;
 while (e < to) {
     Console.WriteLine("!!!TEST CASE NUMBER " + e + "!!!");
     Thread newThread = new Thread(x => { StartRandomArraysSorting(e); 
@@ -127,3 +116,6 @@ while (e < to) {
                                                                 e++; }, 536870912);
     newThread.Start(); newThread.Join();
 }
+
+MyHybridSort.MyHybridSortingAlgorithmStarter();
+RecursionSortsWithoutRecursion.RecursionlessRecursionSortingsStarter();
